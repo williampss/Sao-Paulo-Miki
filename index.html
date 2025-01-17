@@ -1,4 +1,4 @@
-<canvas width="600" height="400" ></canvas>
+<canvas width="600" height="400"></canvas>
 
 <script>
     var tela = document.querySelector('canvas');
@@ -7,8 +7,8 @@
     pincel.fillStyle = 'white';
     pincel.fillRect(0, 0, 600, 400);
 
-    var raio =10;
-    var xAlleatorio;
+    var raio = 10;
+    var xAleatorio;
     var yAleatorio;
 
     function desenhaCirculo(x, y, raio, cor) {
@@ -19,16 +19,16 @@
         
     }
     function limpaTela() {
-        pincel.clearReact(0, 0, 600, 400);
+        pincel.clearRect(0, 0, 600, 400);
         
     }
     function desenhaAlvo(x,y) {
         desenhaCirculo(x, y, raio+20, 'red');
-        desenhaCirculo(x, y, raio10, 'white');
+        desenhaCirculo(x, y, raio+10, 'white');
         desenhaCirculo(x, y, raio, 'red');
 
     }
-    function sorteioPosicao(maximo) {
+    function sorteiaPosicao(maximo) {
         return Math.floor(Math.random() * maximo);
         
     }
@@ -43,8 +43,8 @@
     setInterval(atualizaTela, 1000);
 
     function dispara(evento) {
-        var x = evento.pagex - tela.offsetLeft;
-        var y = evento.pagey - tela.offsetTop;
+        var x = evento.pageX - tela.offsetLeft;
+        var y = evento.pageY - tela.offsetTop;
 
            if((x > xAleatorio - raio)
            && (x < xAleatorio + raio)
