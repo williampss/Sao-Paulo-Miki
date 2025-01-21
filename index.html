@@ -1,59 +1,49 @@
-<canvas width="600" height="400"></canvas>
+<!DOCTYPE html>
+<html lang="pt-br">
 
-<script>
-    var tela = document.querySelector('canvas');
-    var pincel = tela.getContext('2d');
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Menu Responsivo</title>
+</head>
 
-    pincel.fillStyle = 'white';
-    pincel.fillRect(0, 0, 600, 400);
+    <body>
+        <header>
+            <nav class="nav-bar">
+                <div class="logo">
+                    <h1> Logo </h1>
+                </div>
+                <div class="nav-list">
+                    <ul>
+                        <li class="nav-item"><a href="#" class="nav-link">Inicio</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Projetos</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Sobre</a></li>
+                    </ul>
+                </div>
+                <div class="login-button">
+                    <button><a href="#"> Entrar </a></button>
+                </div>
+                
+                <div class="mobile-menu-icon">
+                    <button onclick="menushow()">Imagem</button>
+                </div>
+            </nav>
+            <div classs="mobile-menu">
+                <ul>
+                    <li class="nav-item"><a href="#" class="nav-link">Inicio</a></li>
+                    <li class="nav-item"><a href"#" class="nav-link">Projetos</a></li>
+                    <li class="nav-item"><a href"#" class="nav-link">Sobre</a></li>
+                </ul>
 
-    var raio = 10;
-    var xAleatorio;
-    var yAleatorio;
+                <div class="login-button">
+                    <button><a href="#">Entrar</a></button>
+                </div>
+            </div>
+        </header>
 
-    function desenhaCirculo(x, y, raio, cor) {
-        pincel.fillStyle = cor;
-        pincel.beginPath();
-        pincel.arc(x, y, raio, 0, 2 * Math.PI);
-        pincel.fill();
-        
-    }
-    function limpaTela() {
-        pincel.clearRect(0, 0, 600, 400);
-        
-    }
-    function desenhaAlvo(x,y) {
-        desenhaCirculo(x, y, raio+20, 'red');
-        desenhaCirculo(x, y, raio+10, 'white');
-        desenhaCirculo(x, y, raio, 'red');
+        <script src="assets/js/script.js"></script>
+    </body>
 
-    }
-    function sorteiaPosicao(maximo) {
-        return Math.floor(Math.random() * maximo);
-        
-    }
-    function atualizaTela() {
-        limpaTela();
-        xAleatorio = sorteiaPosicao(600);
-        yAleatorio = sorteiaPosicao(400);
-        desenhaAlvo(xAleatorio, yAleatorio);
-        
-    }
-
-    setInterval(atualizaTela, 1000);
-
-    function dispara(evento) {
-        var x = evento.pageX - tela.offsetLeft;
-        var y = evento.pageY - tela.offsetTop;
-
-           if((x > xAleatorio - raio)
-           && (x < xAleatorio + raio)
-           && (y > yAleatorio - raio)
-           && (y < yAleatorio + raio)) {
-               alert('ACERTOU!');
-           }
-    }
-
-    tela.onclick = dispara;
-    
-</script>
+</html>
