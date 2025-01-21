@@ -6,44 +6,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Menu Responsivo</title>
+    <title>Relógio Digital</title>
 </head>
 
     <body>
-        <header>
-            <nav class="nav-bar">
-                <div class="logo">
-                    <h1> Logo </h1>
-                </div>
-                <div class="nav-list">
-                    <ul>
-                        <li class="nav-item"><a href="#" class="nav-link">Inicio</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Projetos</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Sobre</a></li>
-                    </ul>
-                </div>
-                <div class="login-button">
-                    <button><a href="#"> Entrar </a></button>
-                </div>
-                
-                <div class="mobile-menu-icon">
-                    <button onclick="menushow()">Imagem</button>
-                </div>
-            </nav>
-            <div classs="mobile-menu">
-                <ul>
-                    <li class="nav-item"><a href="#" class="nav-link">Inicio</a></li>
-                    <li class="nav-item"><a href"#" class="nav-link">Projetos</a></li>
-                    <li class="nav-item"><a href"#" class="nav-link">Sobre</a></li>
-                </ul>
-
-                <div class="login-button">
-                    <button><a href="#">Entrar</a></button>
-                </div>
+        <div class="relogio">
+            <div>
+                <span id="horas">00</span>
+                <span id="tempo">Horas</span>
             </div>
-        </header>
 
-        <script src="assets/js/script.js"></script>
+            <div>
+                <span id="minutos">00</span>
+                <span id="tempo">Minutos</span>
+            </div>
+
+            <div>
+                <span id="segundos">00</span>
+                <span id="tempo">SegundosSegundos</span>
+            </div>
+            
+        </div>
+
+        <script>
+            const horas = document.getElementById('horas');
+            const minutos = document.getElementById('minutos');
+            const segundos = document.getElementById('segundos');
+
+            const relogio = setInterval(function time() {
+                let dateToday = new Date();
+                let hr = dateToday.getHours();
+                let min = dateToday.getMinutes();
+                let seg = dateToday.getSeconds();
+
+                if(hr < 10) hr = '0' + hr;
+
+                if(min < 10) min = '0' + min;
+
+                if(s < 10) s = '0' + s;
+
+                horas.textContent = hr;
+                minutos.textContent = min;
+                segundos.textContent = s;
+            })
+        </script>
     </body>
 
+    
 </html>
